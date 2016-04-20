@@ -1,0 +1,12 @@
+*** boost.asio concept
+**** use asio::ip::tcp::aceptor for handling incoming connection
+     accept connection, async_accpet
+**** use asio::ip::tcp::socket for data exchanging, like send, receive
+     send, receive process, async_send(), async_receive()
+**** use asio::ip::tcp::resolver for setting ip address and connection port
+     resolve ip and port, async_connect()
+**** datagram map
+     | acceptor |
+     | iostream |
+     | resolver |
+     | socket   |

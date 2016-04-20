@@ -1,0 +1,4 @@
+*** install tomato extensions, reopen visual studio failed
+    delete following two folder, problem solved:
+      C:\Users\[username]\AppData\Local\Microsoft\VisualStudio\11.0Exp
+      C:\Users\[username]\AppData\Roaming\Microsoft\VisualStudio\11.0Exp
