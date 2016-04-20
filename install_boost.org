@@ -1,0 +1,25 @@
+** Install boost library on Windows visual studio
+*** download boost file, unzip to folder
+*** Build boost
+**** 32 bit
+     1. open visual studio 32 bit native tool
+     2. Run: bootstrap
+     3. Run: b2 toolset=msvc-12.0 --build-type=complete --libdir=C:\Boost\lib\i386 install
+     4. For Visual Studio 2012, use toolset=msvc-11.0
+     5. For Visual Studio 2010, use toolset=msvc-10.0
+     6. Add C:\Boost\include\boost-(version) to your include path.
+     7. Add C:\Boost\lib\i386 to your libs path.
+**** 64 bit
+     1. Start a 64-bit MSVC command prompt and change to the directory where Boost was unzipped.
+     2. Run: bootstrap
+     3. Run: b2 toolset=msvc-12.0 --build-type=complete --libdir=C:\Boost\lib\x64 architecture=x86 address-model=64 install
+     4. For Visual Studio 2012, use toolset=msvc-11.0
+     5. For Visual Studio 2010, use toolset=msvc-10.0
+     6. Add C:\Boost\include\boost-(version) to your include path.
+     7. Add C:\Boost\lib\x64 to your libs path.
+*** Add boost lib and include files to visual studio
+     open C:\Users\Liuhuanjie\AppData\Local\Microsoft\MSBuild\v4.0\Micfosoft.Win32.user.props file, and following:
+       <PropertyGroup>
+         <IncludePath>D:\boost_1_59_0;$(IncludePath)</IncludePath>
+         <LibraryPath>D:\boost_1_59_0\lib\i386;$(LibraryPath)</LibraryPath>
+       </PropertyGroup>
