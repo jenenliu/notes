@@ -2,15 +2,15 @@
     #+BEGIN_SRC C++
       class D : public boost::shared_from_this<D>
     #+END_SRC
-
-    when use shared_from_this, throw bad_weak_ptr exceptions
+    problem:
+     +when use shared_from_this, throw bad_weak_ptr exceptions
 
     solution:
-      dont use shared_from_this in Constructor
-      use shared_ptr to create class D instead of new
+     + dont use shared_from_this in Constructor
+     + use shared_ptr to create class D instead of new
 
     why:
-      because enable_shared_from_this implement using shared_ptr
+     +because enable_shared_from_this implement using shared_ptr
       #+BEGIN_SRC C++
         shared_ptr<T> shared_from_this()
         {
