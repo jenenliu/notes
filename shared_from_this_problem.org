@@ -1,0 +1,14 @@
+*** shared_from_this problem
+    class D : public boost::shared_from_this<D>
+    when use shared_from_this, throw bad_weak_ptr exceptions
+    solution:
+      dont use shared_from_this in Constructor
+      use shared_ptr to create class D instead of new
+    why:
+      because enable_shared_from_this implement using shared_ptr
+      shared_ptr<T> shared_from_this()
+      {
+        shared_ptr<T> p( weak_this_ );
+        BOOST_ASSERT( p.get() == this );
+        return p;
+      }
